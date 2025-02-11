@@ -1,0 +1,103 @@
+SQL query to find duplicates in film and customer table 
+
+SELECT film_id, 
+        title, 
+        description, 
+        release_year, 
+        language_id, 
+        rental_duration, 
+        rental_rate, length, 
+        replacement_cost, rating, 
+        last_update, 
+        special_features, 
+        fulltext,
+COUNT(*) AS duplicate_count
+FROM film
+GROUP BY film_id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, last_update, special_features, fulltext
+HAVING COUNT (*) > 1;
+
+SELECT customer_id, 
+        store_id,
+        first_name,
+        last_name,
+        email,
+        address_id,
+        activebool,
+        create_date,
+        last_update,
+        active,
+COUNT (*) AS duplicate_count
+FROM customer
+GROUP BY customer_id, store_id, first_name, last_name,
+email,address_id, activebool, create_date,last_update,
+active
+HAVING COUNT(*) >1;
+
+--> Both of them return no duplicates
+
+
+SQL query to find non uniform values
+
+SELECT DISTINCT film_id, 
+                title,
+                description, 
+                release_year, 
+                language_id, 
+                rental_duration, 
+                rental_rate,
+                length, 
+                replacement_cost, 
+                rating, 
+                last_update, 
+                special_features, 
+                fulltext
+FROM film;
+
+SELECT DISTINCT customer_id, 
+                store_id,
+                first_name, 
+                last_name, 
+                email, 
+                address_id, 
+                activebool, 
+                create_date, 
+                last_update, 
+                active
+FROM customer;
+
+
+SQL Query to summarise numerical data
+
+SELECT COUNT (*) AS count_rows,
+MIN (release_year) AS earlies_released_year,
+MAX (release_year) AS leastest_released_year, AVG (release_year) AS average_released_year, COUNT (release_year) AS count_released_year, MIN (rental_duration) AS minimum_rental_duration, MAX (rental_duration) AS maximum_rental_duration,
+AVG (rental_duration) AS average_rental_duration, COUNT (rental_duration) AS count_rental_duration, MIN(rental_rate) AS minimum_rental_rate,
+MAX (rental_rate) AS maximum_rental_rate,
+AVG (rental_rate) AS average_rental_rate,
+COUNT (rental_rate) AS count_rental_rate,
+MIN (length) AS minimum_fiml_length,
+MAX (length) AS maximum_film_length,
+AVG (length) AS average_film_length,
+COUNT (length) AS count_film_length,
+MIN (replacement_cost) AS minimum_replacement_cost,
+MAX (replacement_cost) AS maximum_replacement_cost,
+AVG (replacement_cost) AS average_replacement_cost,
+COUNT (replacement_cost) AS count_replacement_cost
+FROM film;
+
+(Customer data has no numerical data)
+
+SQL Query to summarise non numerical data
+
+SELECT
+MODE () WITHIN GROUP (ORDER BY language_id) AS
+modal_language_id,
+MODE () WITHIN GROUP (ORDER BY rating) AS modal_rating
+FROM film;
+
+
+SELECT
+MODE() WITHIN GROUP (ORDER BY
+create_date) AS modal_create_date,
+MODE() WITHIN GROUP (ORDER BY store_id)
+AS modal_store_id FROM customer;
