@@ -4,7 +4,7 @@
 
 Rockbuster Stealth LLC, once a major player in the movie rental industry, is looking to transition into the digital streaming market to stay competitive with modern platforms like Netflix and Amazon Prime. To support this transition, the Business Intelligence (BI) team has been tasked with analyzing Rockbuster’s historical data to extract valuable insights that will shape the company's future strategy.
 
-This project aims to leverage Rockbuster’s existing rental database to provide data-driven recommendations. The key focus areas include identifying revenue trends, analyzing customer demographics, and evaluating film performance to develop an effective digital rental strategy.
+This project aims to use Rockbuster’s existing rental database to provide data-driven recommendations. The key focus areas include identifying revenue trends, analyzing customer demographics, and evaluating film performance to develop an effective digital rental strategy.
 
 [View the interactive dashboard on Tableau](https://public.tableau.com/app/profile/sherezade.maqueda.lafuente/viz/achievement3_17363369156390/RockbusterStealthLLC#1)
 
